@@ -1,6 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import { hello } from './src/functions';
+import { hello, generateEmoji } from './src/functions';
 
 const serverlessConfiguration: AWS = {
   service: 'generateemoji',
@@ -26,7 +26,7 @@ const serverlessConfiguration: AWS = {
     },
     lambdaHashingVersion: '20201221',
   },
-  functions: { hello }
+  functions: { hello, generateEmoji }
 }
 
 module.exports = serverlessConfiguration;
