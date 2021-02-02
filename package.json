@@ -20,6 +20,7 @@
     "fork-ts-checker-webpack-plugin": "^6.0.0",
     "json-schema-to-ts": "^1.4.1",
     "serverless": "^2.16.0",
+    "serverless-layers": "^2.3.3",
     "serverless-webpack": "^5.2.0",
     "sls-dev-tools": "^1.1.11",
     "ts-loader": "^8.0.10",

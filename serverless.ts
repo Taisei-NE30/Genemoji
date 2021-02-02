@@ -9,9 +9,12 @@ const serverlessConfiguration: AWS = {
     webpack: {
       webpackConfig: './webpack.config.js',
       includeModules: true
-    }
+    },
+    serverlessLayers: {
+      packageManager: 'yarn'
+    },
   },
-  plugins: ['serverless-webpack'],
+  plugins: ['serverless-webpack', 'serverless-layers'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',

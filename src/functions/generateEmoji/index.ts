@@ -1,4 +1,4 @@
-import schema from "./schema";
+// import schema from "./schema";
 
 export default {
   handler: `${__dirname.split(process.cwd())[1].substring(1)}/handler.main`,
@@ -7,11 +7,11 @@ export default {
       http: {
         method: 'get',
         path: 'generate',
-        request: {
-          schema: {
-            'application/json': schema
-          }
-        }
+        // request: {
+        //   schema: {
+        //     'application/json': schema
+        //   }
+        // }
       }
     }
   ]
