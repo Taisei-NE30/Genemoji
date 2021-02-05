@@ -1,0 +1,41 @@
+service: generateemoji
+
+frameworkVersion: "2"
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: prd
+  region: ap-northeast-1
+  deploymentBucket:
+    name: genemoji-bucket
+    serverSideEncryption: AES256
+  apiGateway:
+    minimumCompressionSize: 1024
+    shouldStartNameWithService: true
+  lambdaHashVersion: "20201221"
+
+functions:
+  generateEmoji:
+    handler: src/functions/generateEmoji/handler.main
+    events:
+      - http:
+          method: get
+          path: generate
+
+plugins:
+  - serverless-webpack
+  - serverless-layers
+  - serverless-deployment-bucket
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: false
+    packager: "yarn"
+  serverless-layers:
+    layersDeploymentBucket: genemoji-layers
+    packageManager: yarn
+    dependenciesPath: ./package.json
+    compatibleRuntimes: ["nodejs12.x"]
