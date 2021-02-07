@@ -1,13 +1,13 @@
-import { formatJSONResponse, ValidatedEventAPIGatewayProxyEvent } from '@libs/apiGateway';
+import { formatJSONResponse, ValidatedEventAPIGatewayProxyEvent } from '../../libs/apiGateway';
 import AWS from 'aws-sdk'
-import { middyfy } from '@libs/lambda';
+import { middyfy } from '../../libs/lambda';
 import { registerFont } from 'canvas';
 import schema from './schema';
 
-const imageWidth = 128
-const imageHeight = 128
+// const imageWidth = 128
+// const imageHeight = 128
 
-const generateEmoji: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
+const generateEmoji: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async () => {
   const s3 = new AWS.S3()
   s3.getObject({
     Bucket: 'genemoji-fonts',
@@ -28,7 +28,7 @@ const generateEmoji: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
   });
 }
 
-const sparateText = (text: string): string[] => {
+export const separateText = (text: string): string[] => {
   const lineMax = 5
 
   const textLength = text.length
@@ -39,7 +39,7 @@ const sparateText = (text: string): string[] => {
   let linesNum = 2
   let lineLength: number
   while (true) {
-    lineLength = (textLength + linesNum - 1) / linesNum
+    lineLength = Math.ceil(textLength / linesNum)
     if (lineLength > lineMax) {
       linesNum++
     } else {
