@@ -36,5 +36,15 @@
     "webpack-node-externals": "^2.5.2"
   },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "roots": ["<rootDir>/src"],
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js)",
+      "**/?(*.)+(spec|test).+(ts|tsx|js)",
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
+    },
+  }
 }
