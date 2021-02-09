@@ -7,3 +7,7 @@ jspm_packages
 
 # Webpack directories
 .webpack
+
+.vscode/*
+gibo 2.2.4 by Simon Whitaker <sw@netcetera.org>
+https://github.com/simonwhitaker/gibo
