@@ -18,7 +18,7 @@ describe('separateText', () => {
     ["10moji", "Rising Sun", ["Risin", "g Sun"]],
     ["11moji", "Terraformed", ["Terr", "afor", "med"]],
   ]
-    
+
   test.each(cases)('%s', (_name, input, expected) => {
     expect(separateText(input)).toStrictEqual(expected)
   })
