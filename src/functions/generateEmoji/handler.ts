@@ -53,16 +53,12 @@ export const separateText = (text: string): string[] => {
     return [text]
   }
 
-  let linesNum = 2
+  let linesNum = 1
   let lineLength: number
-  while (true) {
+  do {
+    linesNum++
     lineLength = Math.ceil(textLength / linesNum)
-    if (lineLength > lineMax) {
-      linesNum++
-    } else {
-      break
-    }
-  }
+  } while (lineLength > lineMax)
 
   let start = 0
   let end = lineLength
