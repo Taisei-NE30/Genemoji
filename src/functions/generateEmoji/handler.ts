@@ -83,7 +83,7 @@ const decisionFontInfo = (ctx: CanvasRenderingContext2D, text: string, lineHeigh
 
   let prevFontSize = 0.0
   let [width, height] = calcFontSize(ctx, text)
-  while (width < imageWidth && height < imageHeight) {
+  while (width < imageWidth && height < lineHeight) {
     prevFontSize = fontInfo.px
     fontInfo.px += 0.5
     ctx.font = `${fontInfo.family} ${fontInfo.px}px`;
